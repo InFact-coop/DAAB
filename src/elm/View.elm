@@ -4,6 +4,7 @@ module View exposing (..)
 
 import Components.Headings exposing (..)
 import Components.NavBar exposing (..)
+import Components.Overview exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Routes.Banking exposing (..)
@@ -49,5 +50,6 @@ view model =
     div []
         [ navbar model
         , heading model
+        , overview model
         , page
         ]
