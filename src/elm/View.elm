@@ -2,6 +2,7 @@ module View exposing (..)
 
 -- My Elm Files
 
+import Components.Headings exposing (..)
 import Components.NavBar exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -47,5 +48,6 @@ view model =
     in
     div []
         [ navbar model
+        , heading model
         , page
         ]
