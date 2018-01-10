@@ -8,7 +8,7 @@ import Types exposing (..)
 
 initModel : Model
 initModel =
-    { route = BoxRoute
+    { route = HomeRoute
     , userInput = ""
     }
 
