@@ -10,7 +10,7 @@
 
 :root {
 
-  --sans-serif: 'roboto mono', 'helvetica neue', helvetica, arial;
+  --sans-serif: 'open sans', 'helvetica neue', helvetica, arial;
   --serif: georgia, serif;
   --handwriting: Caveat;
   --code: consolas, monaco, monospace;
@@ -89,11 +89,17 @@
   --box-shadow-4: 2px 2px 8px 0px rgba( 0, 0, 0, 0.2 );
   --box-shadow-5: 4px 4px 8px 0px rgba( 0, 0, 0, 0.2 );
 
-  --black: #000;
+
+  --blue:  #2F4CA4;
+  --black: #333;
+    --red:  #C71B22;
+      --gray: #EEE;
+      --green:  #27AE60;
+
   --near-black: #111;
   --dark-gray:#333;
   --mid-gray:#555;
-  --gray: #777;
+
   --silver: #999;
   --light-silver: #aaa;
   --moon-gray: #ccc;
@@ -130,7 +136,7 @@
  --white-0125: rgba(255,255,255,.0125);
 
   --dark-red:  #e7040f;
-  --red:  #ff4136;
+
   --light-red:  #ff725c;
   --orange:  #D05E25;
   --gold:  #ffb700;
@@ -143,11 +149,11 @@
   --pink:  #ff80cc;
   --light-pink:  #ffa3d7;
   --dark-green:  #007459;
-  --green:  #19a974;
+
   --light-green:  #C7FFDF;
   --navy:  #001b44;
   --dark-blue:  #2D6B8E;
-  --blue:  #357edd;
+  --blue:  #2F4CA4;
   --light-blue:  #96ccff;
   --lightest-blue:  #cdecff;
   --washed-blue:  #f6fffe;

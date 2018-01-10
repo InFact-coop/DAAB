@@ -1,20 +1,19 @@
 module View exposing (..)
 
-import Html exposing (..)
-
-
 -- My Elm Files
 
-import Types exposing (..)
-import Routes.Home exposing (..)
-import Routes.Box exposing (..)
+import Components.NavBar exposing (..)
+import Html exposing (..)
+import Html.Attributes exposing (..)
 import Routes.Banking exposing (..)
 import Routes.BankingThanks exposing (..)
+import Routes.Box exposing (..)
 import Routes.BoxThanks exposing (..)
-import Routes.Progress exposing (..)
 import Routes.Help exposing (..)
+import Routes.Home exposing (..)
+import Routes.Progress exposing (..)
 import Routes.ThankYou exposing (..)
-import Components.NavBar exposing (..)
+import Types exposing (..)
 
 
 view : Model -> Html Msg
@@ -46,7 +45,7 @@ view model =
                 ThankYouRoute ->
                     thankYouRoute model
     in
-        div []
-            [ navbar model
-            , page
-            ]
+    div []
+        [ navbar model
+        , page
+        ]
