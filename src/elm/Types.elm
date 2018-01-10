@@ -8,8 +8,13 @@ import Navigation
 
 type Route
     = HomeRoute
-    | PageOneRoute
-    | PageTwoRoute
+    | BoxRoute
+    | BankingRoute
+    | BoxThanksRoute
+    | BankingThanksRoute
+    | ProgressRoute
+    | HelpRoute
+    | ThankYouRoute
 
 
 type alias Model =
