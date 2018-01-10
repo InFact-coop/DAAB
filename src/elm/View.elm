@@ -15,6 +15,7 @@ import Routes.Progress exposing (..)
 import Routes.Help exposing (..)
 import Routes.ThankYou exposing (..)
 import Components.NavBar exposing (..)
+import Components.Breadcrumbs exposing (..)
 
 
 view : Model -> Html Msg
@@ -48,5 +49,6 @@ view model =
     in
         div []
             [ navbar model
+            , breadcrumbsComponent model
             , page
             ]
