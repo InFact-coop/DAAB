@@ -17,3 +17,41 @@ button {
   padding-left: 20rem;
   padding-right: 20rem;
 }
+
+.box {
+  height: 15vw;
+  width: 15vw;
+}
+
+.background-plus{
+  background-image: url("./assets/redplus.png");
+  background-size: 30%;
+background-repeat: no-repeat;
+background-position: center 25%;
+}
+
+.background-plus:hover {
+  background-image: url("./assets/whiteadd.png");
+}
+
+.background-banking{
+  background-image: url("./assets/redPound.png");
+  background-size: 30%;
+background-repeat: no-repeat;
+background-position: center 25%;
+}
+
+.background-banking:hover {
+  background-image: url("./assets/whitePound.png");
+}
+
+.background-progress{
+  background-image: url("./assets/redTrophy.png");
+  background-size: 30%;
+background-repeat: no-repeat;
+background-position: center 25%;
+}
+
+.background-progress:hover {
+  background-image: url("./assets/whiteTrophy.png");
+}
