@@ -2,9 +2,8 @@ module View exposing (..)
 
 -- My Elm Files
 
-import Components.Headings exposing (..)
-import Components.NavBar exposing (..)
-import Components.Overview exposing (..)
+
+
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Routes.Banking exposing (..)
@@ -15,7 +14,14 @@ import Routes.Help exposing (..)
 import Routes.Home exposing (..)
 import Routes.Progress exposing (..)
 import Routes.ThankYou exposing (..)
+
+import Components.NavBar exposing (..)
+import Components.Breadcrumbs exposing (..)
+import Components.Headings exposing (..)
+import Components.Overview exposing (..)
+
 import Types exposing (..)
+
 
 
 view : Model -> Html Msg
@@ -50,6 +56,7 @@ view model =
     div []
         [ navbar model
         , heading model
+        , breadcrumbsComponent model
         , overview model
         , page
         ]
