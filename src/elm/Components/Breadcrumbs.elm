@@ -11,7 +11,7 @@ breadcrumbsComponent model =
         partition =
             span [ class "" ] [ text " > " ]
     in
-        span [ class "breadcrumbs" ]
+        div [ class "breadcrumbs custom-padding mb4" ]
             (List.map
                 breadcrumb
                 (routeToLinkNames model)
