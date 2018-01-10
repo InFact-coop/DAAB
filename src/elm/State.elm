@@ -23,11 +23,26 @@ getRoute hash =
         "#home" ->
             HomeRoute
 
-        "#pageone" ->
-            PageOneRoute
+        "#box" ->
+            BoxRoute
 
-        "#pagetwo" ->
-            PageTwoRoute
+        "#banking" ->
+            BankingRoute
+
+        "#box-thanks" ->
+            BoxThanksRoute
+
+        "#banking-thanks" ->
+            BankingThanksRoute
+
+        "#progress" ->
+            ProgressRoute
+
+        "#help" ->
+            HelpRoute
+
+        "#thankyou" ->
+            ThankYouRoute
 
         _ ->
             HomeRoute

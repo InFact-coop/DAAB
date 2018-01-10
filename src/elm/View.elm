@@ -7,9 +7,14 @@ import Html exposing (..)
 
 import Types exposing (..)
 import Routes.Home exposing (..)
-import Routes.PageOne exposing (..)
-import Routes.PageTwo exposing (..)
-import Routes.Navbar exposing (..)
+import Routes.Box exposing (..)
+import Routes.Banking exposing (..)
+import Routes.BankingThanks exposing (..)
+import Routes.BoxThanks exposing (..)
+import Routes.Progress exposing (..)
+import Routes.Help exposing (..)
+import Routes.ThankYou exposing (..)
+import Components.NavBar exposing (..)
 
 
 view : Model -> Html Msg
@@ -18,13 +23,28 @@ view model =
         page =
             case model.route of
                 HomeRoute ->
-                    home model
+                    homeRoute model
 
-                PageOneRoute ->
-                    pageOne model
+                BoxRoute ->
+                    boxRoute model
 
-                PageTwoRoute ->
-                    pageTwo model
+                BankingRoute ->
+                    bankingRoute model
+
+                BoxThanksRoute ->
+                    boxThanksRoute model
+
+                BankingThanksRoute ->
+                    bankingThanksRoute model
+
+                ProgressRoute ->
+                    progressRoute model
+
+                HelpRoute ->
+                    helpRoute model
+
+                ThankYouRoute ->
+                    thankYouRoute model
     in
         div []
             [ navbar model

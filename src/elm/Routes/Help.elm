@@ -1,4 +1,4 @@
-module Routes.Home exposing (..)
+module Routes.Help exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -6,8 +6,8 @@ import Html.Events exposing (..)
 import Types exposing (..)
 
 
-homeRoute : Model -> Html Msg
-homeRoute model =
+helpRoute : Model -> Html Msg
+helpRoute model =
     div [ class "" ]
-        [ h1 [ class "tc f1" ] [ text "Home" ]
+        [ h1 [ class "tc f1" ] [ text "Help" ]
         ]
