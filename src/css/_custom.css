@@ -12,3 +12,8 @@ body {
 button {
   font-family: var(--sans-serif);
 }
+
+.custom-padding{
+  padding-left: 20rem;
+  padding-right: 20rem;
+}
