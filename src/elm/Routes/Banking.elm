@@ -37,7 +37,7 @@ bankingRoute model =
             , div [ class "dib v-top ml3 mt2" ]
                 [ input [ placeholder "0.00", max "100000.00", min "0.00", step "0.01", type_ "number", class "db f4 w4", onInput UpdateBankingAmount ] []
                 ]
-            , section [ class "actionButtons mt4" ]
-                [ saveButton ExitBanking "Save and exit"
+            , section [ class "actionButtons mt4 pb5" ]
+                [ saveButton ExitBanking "Save"
                 ]
             ]

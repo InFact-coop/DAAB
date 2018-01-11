@@ -13,4 +13,7 @@ floatToCurrency float =
         rightOfPoint =
             String.right 2 stringified
     in
-        leftOfPoint ++ "." ++ rightOfPoint
+        if float == 0 then
+            "0"
+        else
+            leftOfPoint ++ "." ++ rightOfPoint

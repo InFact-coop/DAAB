@@ -94,11 +94,12 @@
   --black: #333;
     --red:  #C71B22;
       --gray: #EEE;
+      --mid-gray:#666;
+
       --green:  #27AE60;
 
   --near-black: #111;
   --dark-gray:#333;
-  --mid-gray:#555;
 
   --silver: #999;
   --light-silver: #aaa;
