@@ -147,10 +147,10 @@ update msg model =
             UpdateBoxDate stringDate ->
                 let
                     newDate =
-                        Date.fromString stringDate |> Result.toMaybe (Date.fromTime 0)
+                        Result.toMaybe (Date.fromString stringDate)
 
                     newBox =
-                        { oldBox | date = Just newDate }
+                        { oldBox | date = newDate }
                 in
                     ( { model | currentBox = newBox }, Cmd.none )
 
@@ -167,10 +167,10 @@ update msg model =
             UpdateBankingDate stringDate ->
                 let
                     newDate =
-                        Date.fromString stringDate |> Result.toMaybe (Date.fromTime 0)
+                        Result.toMaybe (Date.fromString stringDate)
 
                     newBanking =
-                        { oldBox | date = newDate }
+                        { oldBanking | date = newDate }
                 in
                     ( { model | currentBanking = newBanking }, Cmd.none )
 
