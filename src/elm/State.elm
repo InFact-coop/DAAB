@@ -16,6 +16,25 @@ import Types exposing (..)
 --     }
 
 
+calculateTotal : List { a | amount : Maybe Float } -> Float
+calculateTotal list =
+    let
+        log =
+            Debug.log "LOG: " list
+    in
+        List.foldr (\{ amount } n -> n + (Maybe.withDefault 0 amount)) 0.0 list
+
+
+checkBalance : Float -> BalanceStatus
+checkBalance balance =
+    if balance > 0.0 then
+        Credit
+    else if balance < 0.0 then
+        Debit
+    else
+        Matching
+
+
 initBox : Box
 initBox =
     { date = Nothing
@@ -29,6 +48,13 @@ initBox =
     }
 
 
+initBanking : Banking
+initBanking =
+    { date = Nothing
+    , amount = Nothing
+    }
+
+
 initModel : Model
 initModel =
     { route = HomeRoute
@@ -38,7 +64,7 @@ initModel =
     , currentBox = initBox
     , boxTotal = 0.0
     , banking = []
-    , currentBanking = { date = Nothing, amount = Nothing }
+    , currentBanking = initBanking
     , bankingTotal = 0.0
     , balance = 0.0
     , balanceStatus = Matching
@@ -182,7 +208,27 @@ update msg model =
                     ( { model | currentBox = newBox }, Cmd.none )
 
             SubmitBox ->
-                ( { model | currentBox = initBox, boxes = model.boxes ++ [ model.currentBox ] }, Cmd.none )
+                let
+                    newModel =
+                        { model | currentBox = initBox, boxes = model.boxes ++ [ model.currentBox ] }
+
+                    newTotal =
+                        { newModel | boxTotal = calculateTotal newModel.boxes }
+
+                    newBalance =
+                        { newTotal | balance = (newTotal.bankingTotal - newTotal.boxTotal) }
+                in
+                    ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
 
             SubmitBanking ->
-                ( model, Cmd.none )
+                let
+                    newModel =
+                        { model | currentBanking = initBanking, banking = model.banking ++ [ model.currentBanking ] }
+
+                    newTotal =
+                        { newModel | bankingTotal = calculateTotal newModel.banking }
+
+                    newBalance =
+                        { newTotal | balance = (newTotal.bankingTotal - newTotal.boxTotal) }
+                in
+                    ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
