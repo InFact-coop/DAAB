@@ -57,7 +57,7 @@ initBanking =
 
 initModel : Model
 initModel =
-    { route = ThankYouRoute
+    { route = HomeRoute
     , userInput = ""
     , questions = questionList
     , boxes = []
