@@ -23,6 +23,13 @@ type alias Model =
     }
 
 
+type Action
+    = AddBox
+    | AddBanking
+    | ExitBox
+    | ExitBanking
+
+
 
 -- Update
 

@@ -9,6 +9,11 @@ body {
   margin: 0;
 }
 
+
+.sans-serif {
+  font-family: var(--sans-serif);
+}
+
 button {
   font-family: var(--sans-serif);
 }
