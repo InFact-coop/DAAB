@@ -36,6 +36,7 @@ type Action
     | AddBanking
     | ExitBox
     | ExitBanking
+    | OkButton
 
 
 

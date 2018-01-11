@@ -23,3 +23,6 @@ saveButton action content =
 
         ExitBanking ->
             a [ class <| buttonClasses ++ "bg-red", href "#banking-thanks" ] [ text content ]
+
+        OkButton ->
+            a [ class <| buttonClasses ++ "bg-red pl5 pr5 fw1 f4", href "#home" ] [ text content ]
