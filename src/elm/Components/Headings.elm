@@ -7,7 +7,7 @@ import Types exposing (..)
 
 heading : Model -> Html Msg
 heading model =
-    header [ class "custom-padding f3 black" ] [ h1 [] [ text <| getHeading model ] ]
+    header [ class "custom-padding f3 black" ] [ h1 [ class "mb1" ] [ text <| getHeading model ] ]
 
 
 getHeading : Model -> String

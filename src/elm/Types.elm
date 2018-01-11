@@ -31,6 +31,13 @@ type alias Question =
     }
 
 
+type Action
+    = AddBox
+    | AddBanking
+    | ExitBox
+    | ExitBanking
+
+
 
 -- Update
 
