@@ -38,7 +38,7 @@ bankingRoute model =
             [ input [ placeholder "0.00", max "100000.00", min "0.00", step "0.01", type_ "number", class "db f4 w4" ] []
             ]
         , section [ class "actionButtons mt4" ]
-            [ saveButton AddBox "Save and add box"
-            , saveButton ExitBox "Save and exit"
+            [ saveButton AddBanking "Save and add banking"
+            , saveButton ExitBanking "Save and exit"
             ]
         ]
