@@ -11,12 +11,12 @@ breadcrumbsComponent model =
         partition =
             span [ class "" ] [ text " > " ]
     in
-    span [ class "breadcrumbs" ]
-        (List.map
-            breadcrumb
-            (routeToLinkNames model)
-            |> List.intersperse partition
-        )
+        div [ class "breadcrumbs custom-padding mb4" ]
+            (List.map
+                breadcrumb
+                (routeToLinkNames model)
+                |> List.intersperse partition
+            )
 
 
 breadcrumb : ( String, String ) -> Html Msg
