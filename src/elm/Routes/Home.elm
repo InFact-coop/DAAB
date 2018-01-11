@@ -3,7 +3,6 @@ module Routes.Home exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import InlineHover exposing (..)
 import Types exposing (..)
 
 
