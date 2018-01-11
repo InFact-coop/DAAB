@@ -1,7 +1,7 @@
 module State exposing (..)
 
-import Date exposing (..)
 import Data.Questions exposing (..)
+import Date exposing (..)
 import Types exposing (..)
 
 
@@ -219,7 +219,7 @@ update msg model =
                         { newModel | boxTotal = calculateTotal newModel.boxes }
 
                     newBalance =
-                        { newTotal | balance = (newTotal.bankingTotal - newTotal.boxTotal) }
+                        { newTotal | balance = newTotal.bankingTotal - newTotal.boxTotal }
                 in
                     ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
 
@@ -232,6 +232,6 @@ update msg model =
                         { newModel | bankingTotal = calculateTotal newModel.banking }
 
                     newBalance =
-                        { newTotal | balance = (newTotal.bankingTotal - newTotal.boxTotal) }
+                        { newTotal | balance = newTotal.bankingTotal - newTotal.boxTotal }
                 in
                     ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
