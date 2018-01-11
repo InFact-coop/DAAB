@@ -14,13 +14,13 @@ saveButton action content =
     in
         case action of
             AddBox ->
-                a [ class <| buttonClasses ++ "bg-blue", href "#box", onClick UpdateBoxes ] [ text content ]
+                a [ class <| buttonClasses ++ "bg-blue", href "#refreshbox", onClick SubmitBox ] [ text content ]
 
             AddBanking ->
-                a [ class <| buttonClasses ++ "bg-red", href "#banking", onClick UpdateBanking ] [ text content ]
+                a [ class <| buttonClasses ++ "bg-red", href "#banking", onClick SubmitBanking ] [ text content ]
 
             ExitBox ->
-                a [ class <| buttonClasses ++ "bg-red", href "#box-thanks", onClick UpdateBox ] [ text content ]
+                a [ class <| buttonClasses ++ "bg-red", href "#box-thanks", onClick SubmitBox ] [ text content ]
 
             ExitBanking ->
-                a [ class <| buttonClasses ++ "bg-red", href "#banking-thanks", onClick UpdateBanking ] [ text content ]
+                a [ class <| buttonClasses ++ "bg-red", href "#banking-thanks", onClick SubmitBanking ] [ text content ]
