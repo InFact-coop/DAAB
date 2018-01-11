@@ -58,7 +58,7 @@ progressRoute model =
             , summary model.balanceStatus
             , h2 [ class "f3 b" ] [ text "What would you like to do?" ]
             , redButton ( "SUBMIT TO DAA", "thankyou" )
-            , redButton ( "SAVE FOR LATER", "thankyou" )
+            , redButton ( "SAVE FOR LATER", "home" )
             , br [] []
             , a [ class "f4 blue pb4", href "#help" ] [ text "Need further help?" ]
             ]
@@ -116,7 +116,7 @@ summary status =
         Matching ->
             div []
                 [ img [ class "dib v-mid w3 h3", src "./assets/greenTick.png" ] []
-                , div [ class "dib ml4 v-mid" ] [ span [ class "b" ] [ text "Great work! " ], span [] [ text "Both your balances match so therefore no changes are required" ] ]
+                , div [ class "dib ml4 v-mid f4" ] [ span [ class "b" ] [ text "Great work! " ], span [] [ text "Both your balances match so therefore no changes are required" ] ]
                 ]
 
         _ ->
