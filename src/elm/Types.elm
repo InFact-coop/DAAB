@@ -37,3 +37,5 @@ type Action
 type Msg
     = Change String
     | UrlChange Navigation.Location
+    | UpdateBox
+    | UpdateBanking
