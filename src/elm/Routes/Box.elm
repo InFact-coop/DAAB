@@ -1,10 +1,10 @@
 module Routes.Box exposing (..)
 
+import Components.SaveButton exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Types exposing (..)
-import Components.SaveButton exposing (..)
 
 
 --
@@ -67,10 +67,9 @@ boxRoute model =
                         , label [ class "ml3", for "c" ] [ text "Outlet has Closed" ]
                         ]
                     ]
-                , div [ class "dib lh-copy mt4" ]
-                    [ label [ for "recieptno", class "db f4" ] [ text "Receipt Number: " ]
-                    , br [] []
-                    , label [ for "boxtotal", class "db f4" ] [ text "Amount in box: £" ]
+                , div [ class "lh-copy" ]
+                    [ input [ type_ "radio", class "mt3", name "nbsc", id "b" ] []
+                    , label [ class "ml3", for "b" ] [ text "Seal Broken" ]
                     ]
                 , div [ class "dib v-top ml3 mt4" ]
                     [ input [ type_ "text", id "receiptno", class "db f4", onInput UpdateBoxReceipt ] []
@@ -81,5 +80,19 @@ boxRoute model =
                     [ -- saveButton AddBox "Save and add box"    ,
                       saveButton ExitBox "Save and exit"
                     ]
+                ]
+            , div [ class "dib lh-copy mt4" ]
+                [ label [ for "recieptno", class "db f4" ] [ text "Receipt Number: " ]
+                , br [] []
+                , label [ for "boxtotal", class "db f4" ] [ text "Amount in box: £" ]
+                ]
+            , div [ class "dib v-top ml3 mt4" ]
+                [ input [ type_ "text", id "receiptno", class "db f4" ] []
+                , br [] []
+                , input [ placeholder "0.00", max "100000.00", min "0.00", step "0.01", type_ "number", class "db f4 w3" ] []
+                ]
+            , section [ class "actionButtons mt4 mb5" ]
+                [ saveButton AddBox "Save and add box"
+                , saveButton ExitBox "Save and exit"
                 ]
             ]
