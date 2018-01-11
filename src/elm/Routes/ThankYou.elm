@@ -1,6 +1,7 @@
 module Routes.ThankYou exposing (..)
 
 import Components.SaveButton exposing (..)
+import Helpers.FloatToCurrency exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -36,5 +37,5 @@ thankYouRoute model =
 bankingAmount : Model -> Html Msg
 bankingAmount model =
     span [ class "b" ]
-        [ text ("£" ++ toString model.bankingTotal)
+        [ text ("£" ++ floatToCurrency model.bankingTotal)
         ]

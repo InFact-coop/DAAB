@@ -1,6 +1,7 @@
 module Routes.BankingThanks exposing (..)
 
 import Components.RedButton exposing (..)
+import Helpers.FloatToCurrency exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -28,7 +29,7 @@ bankingThanksRoute model =
 bankingAmount : Model -> Html Msg
 bankingAmount model =
     div [ class "b" ]
-        [ text ("£" ++ toString model.bankingTotal)
+        [ text ("£" ++ floatToCurrency model.bankingTotal)
         ]
 
 
@@ -36,10 +37,10 @@ totalAmount : Model -> Html Msg
 totalAmount model =
     case model.balanceStatus of
         Debit ->
-            span [ class "b" ] [ text (toString <| (-1 * model.balance)) ]
+            span [ class "b" ] [ text (floatToCurrency <| (-1 * model.balance)) ]
 
         _ ->
-            span [ class "b" ] [ text (" £" ++ toString model.balance) ]
+            span [ class "b" ] [ text (" £" ++ floatToCurrency model.balance) ]
 
 
 creditDebit : Model -> Html Msg

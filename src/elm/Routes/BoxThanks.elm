@@ -1,6 +1,7 @@
 module Routes.BoxThanks exposing (..)
 
 import Components.RedButton exposing (..)
+import Helpers.FloatToCurrency exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -31,5 +32,5 @@ boxThanksRoute model =
 boxTotal : Model -> Html Msg
 boxTotal model =
     div [ class "b" ]
-        [ text ("£" ++ toString model.boxTotal)
+        [ text ("£" ++ floatToCurrency model.boxTotal)
         ]
