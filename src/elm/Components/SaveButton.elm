@@ -2,6 +2,7 @@ module Components.SaveButton exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Types exposing (..)
 
 
@@ -11,15 +12,15 @@ saveButton action content =
         buttonClasses =
             "link mr2 pa3 white dib "
     in
-    case action of
-        AddBox ->
-            a [ class <| buttonClasses ++ "bg-blue", href "#box" ] [ text content ]
+        case action of
+            AddBox ->
+                a [ class <| buttonClasses ++ "bg-blue", href "#refreshbox", onClick SubmitBox ] [ text content ]
 
-        AddBanking ->
-            a [ class <| buttonClasses ++ "bg-blue", href "#banking" ] [ text content ]
+            AddBanking ->
+                a [ class <| buttonClasses ++ "bg-red", href "#banking", onClick SubmitBanking ] [ text content ]
 
-        ExitBox ->
-            a [ class <| buttonClasses ++ "bg-red", href "#box-thanks" ] [ text content ]
+            ExitBox ->
+                a [ class <| buttonClasses ++ "bg-red", href "#box-thanks", onClick SubmitBox ] [ text content ]
 
-        ExitBanking ->
-            a [ class <| buttonClasses ++ "bg-red", href "#banking-thanks" ] [ text content ]
+            ExitBanking ->
+                a [ class <| buttonClasses ++ "bg-red", href "#banking-thanks", onClick SubmitBanking ] [ text content ]
