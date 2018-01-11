@@ -20,6 +20,14 @@ type Route
 type alias Model =
     { route : Route
     , userInput : String
+    , questions : List Question
+    }
+
+
+type alias Question =
+    { id : Int
+    , question : String
+    , answer : String
     }
 
 

@@ -1,5 +1,6 @@
 module State exposing (..)
 
+import Data.Questions exposing (..)
 import Types exposing (..)
 
 
@@ -8,8 +9,9 @@ import Types exposing (..)
 
 initModel : Model
 initModel =
-    { route = HomeRoute
+    { route = HelpRoute
     , userInput = ""
+    , questions = questionList
     }
 
 
