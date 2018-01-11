@@ -1,7 +1,7 @@
 module State exposing (..)
 
-import Date exposing (..)
 import Data.Questions exposing (..)
+import Date exposing (..)
 import Types exposing (..)
 
 
@@ -22,7 +22,7 @@ calculateTotal list =
         log =
             Debug.log "LOG: " list
     in
-        List.foldr (\{ amount } n -> n + (Maybe.withDefault 0 amount)) 0.0 list
+    List.foldr (\{ amount } n -> n + Maybe.withDefault 0 amount) 0.0 list
 
 
 checkBalance : Float -> BalanceStatus
@@ -57,7 +57,7 @@ initBanking =
 
 initModel : Model
 initModel =
-    { route = HomeRoute
+    { route = BoxThanksRoute
     , userInput = ""
     , questions = questionList
     , boxes = []
@@ -118,117 +118,117 @@ update msg model =
         oldBox =
             model.currentBox
     in
-        case msg of
-            Change newInput ->
-                ( { model | userInput = newInput }, Cmd.none )
+    case msg of
+        Change newInput ->
+            ( { model | userInput = newInput }, Cmd.none )
 
-            UrlChange location ->
-                ( { model | route = getRoute location.hash }, Cmd.none )
+        UrlChange location ->
+            ( { model | route = getRoute location.hash }, Cmd.none )
 
-            UpdateBoxLocation stringLocation ->
-                let
-                    newBox =
-                        { oldBox | location = Just stringLocation }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+        UpdateBoxLocation stringLocation ->
+            let
+                newBox =
+                    { oldBox | location = Just stringLocation }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBoxNo1 string ->
-                let
-                    newBox =
-                        { oldBox | boxno1 = Just string }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+        UpdateBoxNo1 string ->
+            let
+                newBox =
+                    { oldBox | boxno1 = Just string }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBoxNo2 string ->
-                let
-                    newBox =
-                        { oldBox | boxno2 = Just string }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+        UpdateBoxNo2 string ->
+            let
+                newBox =
+                    { oldBox | boxno2 = Just string }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBoxNo3 string ->
-                let
-                    newBox =
-                        { oldBox | boxno3 = Just string }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+        UpdateBoxNo3 string ->
+            let
+                newBox =
+                    { oldBox | boxno3 = Just string }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBoxReceipt stringReceipt ->
-                let
-                    newBox =
-                        { oldBox | receiptno = Just stringReceipt }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+        UpdateBoxReceipt stringReceipt ->
+            let
+                newBox =
+                    { oldBox | receiptno = Just stringReceipt }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBoxAmount stringAmount ->
-                let
-                    newAmount =
-                        Result.toMaybe (String.toFloat stringAmount)
+        UpdateBoxAmount stringAmount ->
+            let
+                newAmount =
+                    Result.toMaybe (String.toFloat stringAmount)
 
-                    newBox =
-                        { oldBox | amount = newAmount }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+                newBox =
+                    { oldBox | amount = newAmount }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBoxDate stringDate ->
-                let
-                    newDate =
-                        Result.toMaybe (Date.fromString stringDate)
+        UpdateBoxDate stringDate ->
+            let
+                newDate =
+                    Result.toMaybe (Date.fromString stringDate)
 
-                    newBox =
-                        { oldBox | date = newDate }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+                newBox =
+                    { oldBox | date = newDate }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            UpdateBankingAmount stringAmount ->
-                let
-                    newAmount =
-                        Result.toMaybe (String.toFloat stringAmount)
+        UpdateBankingAmount stringAmount ->
+            let
+                newAmount =
+                    Result.toMaybe (String.toFloat stringAmount)
 
-                    newBanking =
-                        { oldBanking | amount = newAmount }
-                in
-                    ( { model | currentBanking = newBanking }, Cmd.none )
+                newBanking =
+                    { oldBanking | amount = newAmount }
+            in
+            ( { model | currentBanking = newBanking }, Cmd.none )
 
-            UpdateBankingDate stringDate ->
-                let
-                    newDate =
-                        Result.toMaybe (Date.fromString stringDate)
+        UpdateBankingDate stringDate ->
+            let
+                newDate =
+                    Result.toMaybe (Date.fromString stringDate)
 
-                    newBanking =
-                        { oldBanking | date = newDate }
-                in
-                    ( { model | currentBanking = newBanking }, Cmd.none )
+                newBanking =
+                    { oldBanking | date = newDate }
+            in
+            ( { model | currentBanking = newBanking }, Cmd.none )
 
-            UpdateBoxOutletStatus outletstatus ->
-                let
-                    newBox =
-                        { oldBox | outletStatus = Just outletstatus }
-                in
-                    ( { model | currentBox = newBox }, Cmd.none )
+        UpdateBoxOutletStatus outletstatus ->
+            let
+                newBox =
+                    { oldBox | outletStatus = Just outletstatus }
+            in
+            ( { model | currentBox = newBox }, Cmd.none )
 
-            SubmitBox ->
-                let
-                    newModel =
-                        { model | currentBox = initBox, boxes = model.boxes ++ [ model.currentBox ] }
+        SubmitBox ->
+            let
+                newModel =
+                    { model | currentBox = initBox, boxes = model.boxes ++ [ model.currentBox ] }
 
-                    newTotal =
-                        { newModel | boxTotal = calculateTotal newModel.boxes }
+                newTotal =
+                    { newModel | boxTotal = calculateTotal newModel.boxes }
 
-                    newBalance =
-                        { newTotal | balance = (newTotal.bankingTotal - newTotal.boxTotal) }
-                in
-                    ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
+                newBalance =
+                    { newTotal | balance = newTotal.bankingTotal - newTotal.boxTotal }
+            in
+            ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
 
-            SubmitBanking ->
-                let
-                    newModel =
-                        { model | currentBanking = initBanking, banking = model.banking ++ [ model.currentBanking ] }
+        SubmitBanking ->
+            let
+                newModel =
+                    { model | currentBanking = initBanking, banking = model.banking ++ [ model.currentBanking ] }
 
-                    newTotal =
-                        { newModel | bankingTotal = calculateTotal newModel.banking }
+                newTotal =
+                    { newModel | bankingTotal = calculateTotal newModel.banking }
 
-                    newBalance =
-                        { newTotal | balance = (newTotal.bankingTotal - newTotal.boxTotal) }
-                in
-                    ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
+                newBalance =
+                    { newTotal | balance = newTotal.bankingTotal - newTotal.boxTotal }
+            in
+            ( { newBalance | balanceStatus = checkBalance newBalance.balance }, Cmd.none )
