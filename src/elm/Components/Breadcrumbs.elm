@@ -52,27 +52,27 @@ routeToLinkNames model =
         thankyou =
             ( "#thankyou", "thank you" )
     in
-        case model.route of
-            HomeRoute ->
-                [ home ]
+    case model.route of
+        HomeRoute ->
+            [ home ]
 
-            BoxRoute ->
-                [ home, box ]
+        BoxRoute ->
+            [ home, box ]
 
-            BankingRoute ->
-                [ home, banking ]
+        BankingRoute ->
+            [ home, banking ]
 
-            BoxThanksRoute ->
-                [ home, box, boxthanks ]
+        BoxThanksRoute ->
+            [ home, box, boxthanks ]
 
-            BankingThanksRoute ->
-                [ home, banking, bankingthanks ]
+        BankingThanksRoute ->
+            [ home, banking, bankingthanks ]
 
-            ProgressRoute ->
-                [ home, progress ]
+        ProgressRoute ->
+            [ home, progress ]
 
-            HelpRoute ->
-                [ home, help ]
+        HelpRoute ->
+            [ home, help ]
 
-            ThankYouRoute ->
-                [ home, thankyou ]
+        ThankYouRoute ->
+            [ home, thankyou ]
