@@ -9,7 +9,7 @@ import Types exposing (..)
 
 initModel : Model
 initModel =
-    { route = BoxThanksRoute
+    { route = HomeRoute
     , userInput = ""
     , questions = questionList
     }
