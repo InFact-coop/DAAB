@@ -86,9 +86,11 @@ type Msg
     = Change String
     | UrlChange Navigation.Location
     | UpdateBoxDate String
+    | UpdateBankingDate String
     | UpdateBoxLocation String
     | UpdateBoxReceipt String
     | UpdateBoxAmount String
+    | UpdateBankingAmount String
     | UpdateBoxNo1 String
     | UpdateBoxNo2 String
     | UpdateBoxNo3 String
