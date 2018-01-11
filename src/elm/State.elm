@@ -86,6 +86,9 @@ getRoute hash =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     let
+        oldBanking =
+            model.currentBanking
+
         oldBox =
             model.currentBox
     in
@@ -144,12 +147,32 @@ update msg model =
             UpdateBoxDate stringDate ->
                 let
                     newDate =
-                        Date.fromString stringDate |> Result.withDefault (Date.fromTime 0)
+                        Result.toMaybe (Date.fromString stringDate)
 
                     newBox =
-                        { oldBox | date = Just newDate }
+                        { oldBox | date = newDate }
                 in
                     ( { model | currentBox = newBox }, Cmd.none )
+
+            UpdateBankingAmount stringAmount ->
+                let
+                    newAmount =
+                        Result.toMaybe (String.toFloat stringAmount)
+
+                    newBanking =
+                        { oldBanking | amount = newAmount }
+                in
+                    ( { model | currentBanking = newBanking }, Cmd.none )
+
+            UpdateBankingDate stringDate ->
+                let
+                    newDate =
+                        Result.toMaybe (Date.fromString stringDate)
+
+                    newBanking =
+                        { oldBanking | date = newDate }
+                in
+                    ( { model | currentBanking = newBanking }, Cmd.none )
 
             UpdateBoxOutletStatus outletstatus ->
                 let
