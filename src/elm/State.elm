@@ -9,8 +9,7 @@ import Types exposing (..)
 
 initModel : Model
 initModel =
-
-    { route = HomeRoute
+    { route = BankingRoute
     , userInput = ""
     , questions = questionList
     }
