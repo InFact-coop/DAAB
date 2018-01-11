@@ -5,24 +5,9 @@ import Data.Questions exposing (..)
 import Types exposing (..)
 
 
--- MODEL
--- type alias Box =
---     { date : Maybe Date
---     , location : Maybe String
---     , boxno : Maybe String
---     , outletStatus : Maybe OutletStatus
---     , receiptno : Maybe String
---     , amount : Maybe Float
---     }
-
-
 calculateTotal : List { a | amount : Maybe Float } -> Float
 calculateTotal list =
-    let
-        log =
-            Debug.log "LOG: " list
-    in
-        List.foldr (\{ amount } n -> n + (Maybe.withDefault 0 amount)) 0.0 list
+    List.foldr (\{ amount } n -> n + (Maybe.withDefault 0 amount)) 0.0 list
 
 
 checkBalance : Float -> BalanceStatus
@@ -48,6 +33,18 @@ initBox =
     }
 
 
+
+-- { amount = Just 10.21
+-- , boxno1 = Just "21"
+-- , boxno2 = Just "12"
+-- , boxno3 = Just "21"
+-- , date = Just (Date.fromTime 0)
+-- , location = Just "Dorset"
+-- , outletStatus = Just Broken
+-- , receiptno = Just "09ER23"
+-- }
+
+
 initBanking : Banking
 initBanking =
     { date = Nothing
@@ -55,19 +52,25 @@ initBanking =
     }
 
 
+
+-- { date = Just (Date.fromTime 0)
+-- , amount = Just 32.21
+-- }
+
+
 initModel : Model
 initModel =
     { route = HomeRoute
     , userInput = ""
     , questions = questionList
-    , boxes = []
+    , boxes = [ initBox ]
     , currentBox = initBox
     , boxTotal = 0.0
-    , banking = []
+    , banking = [ initBanking ]
     , currentBanking = initBanking
     , bankingTotal = 0.0
     , balance = 0.0
-    , balanceStatus = Matching
+    , balanceStatus = Debit
     }
 
 
