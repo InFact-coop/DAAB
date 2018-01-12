@@ -62,7 +62,7 @@ creditDebit model =
                     , p []
                         [ text "Would you like to "
                         , a
-                            [ href "#box", class "blue" ]
+                            [ href "#banking", class "blue" ]
                             [ text "record another banking deposit?" ]
                         ]
                     ]
