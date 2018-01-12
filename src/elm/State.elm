@@ -70,7 +70,7 @@ initModel =
     , currentBanking = initBanking
     , bankingTotal = 0.0
     , balance = 0.0
-    , balanceStatus = Debit
+    , balanceStatus = Matching
     }
 
 
