@@ -21,6 +21,6 @@ helpRoute model =
             [ h2 [ class "f3" ] [ text "What would you like to do next?" ]
             , redButton ( "RECORD NEW BOX", "box" )
             , redButton ( "RECORD BANKING", "bank" )
-            , redButton ( "RETURN HOME", "home" )
+            , redButton ( "HOME", "home" )
             ]
         ]
