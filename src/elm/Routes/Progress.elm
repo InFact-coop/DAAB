@@ -40,7 +40,7 @@ progressRoute model =
                             , td [ class <| tableClasses ++ " b" ] [ text <| "£" ++ (floatToCurrency model.boxTotal) ]
                             ]
                        ]
-            , h2 [ class "f3 b" ] [ text "Boxes recorded this month" ]
+            , h2 [ class "f3 b" ] [ text "Banking deposits recorded this month" ]
             , table [ class "bankingTable collapse" ] <|
                 [ tr []
                     [ th [ class <| tableClasses ++ "b" ]
